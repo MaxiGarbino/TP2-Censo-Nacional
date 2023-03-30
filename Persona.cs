@@ -3,32 +3,40 @@ class Persona
 {
     // Definicion de Propiedades
     public int DNI{get;private set;}
-    public int Apellido{get;set;}
+    public string Apellido{get;set;}
     public string Nombre{get;set;}
-    public string Curso{get;set;}
     public DateTime FechaNacimiento{get;set;}
-    private int Edad{get;set;}
+    public string Email{get;set;}
+    private bool puedeVotar{get;set;}
 // Constructor
-public Alumnx()
+public Persona()
 {
 
 }
-    public Alumnx(string nom, int dni=0, string cur="", DateTime fn = new DateTime())
+    public Persona(int dni=0, string apellido = "No se ingreso apellido", string nombre="No se ingreso nombre", DateTime fn = new DateTime(), string email = "No se ingreso Email")
     {
-        Nombre = nom;
+        Nombre = nombre;
         DNI=dni;
-        Curso=cur;
+        Apellido=apellido;
         FechaNacimiento = fn;
-        Edad=0;
+        Email=email;
+        puedeVotar = false;
     }
 
     // Métodos
 
-    public int MiEdad()
+    public int ObtenerEdad()
     {
+        int edad = 0;
         DateTime FechaNacimientoHoy = new DateTime(DateTime.Today.Year, FechaNacimiento.Month, FechaNacimiento.Day);
-        if (FechaNacimientoHoy< DateTime.Today)  Edad = DateTime.Today.Year - FechaNacimiento.Year;
-            else   Edad = DateTime.Today.Year - FechaNacimiento.Year -1;
-        return Edad; 
+        if (FechaNacimientoHoy< DateTime.Today)  edad = DateTime.Today.Year - FechaNacimiento.Year;
+            else   edad = DateTime.Today.Year - FechaNacimiento.Year -1;
+        return edad; 
+    }
+    public bool PuedeVotar(){
+        const int EdadMinima = 16;
+        if(ObtenerEdad() >= EdadMinima) puedeVotar = true;
+        else puedeVotar = false;
+        return puedeVotar;
     }
 }
