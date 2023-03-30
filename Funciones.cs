@@ -27,7 +27,7 @@ public static class Funciones
         entero = IngresarEntero(msj);
         while (entero < minimo || entero > maximo)
         {
-            entero = IngresarEntero("ERROR! " + msj);
+            entero = IngresarEntero("Error: Numero fuera del rango, " + msj);
         }
         return entero;
     }
