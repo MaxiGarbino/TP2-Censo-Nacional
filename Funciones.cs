@@ -13,7 +13,7 @@ public static class Funciones
     public static int IngresarEntero(string msj)
     {
         int entero=-1;
-        while (entero == -1)
+        while (entero <= 0)
         {   
             Console.Write(msj);
             int.TryParse(Console.ReadLine(), out entero);

@@ -7,7 +7,6 @@ class Persona
     public string Nombre{get;set;}
     public DateTime FechaNacimiento{get;set;}
     public string Email{get;set;}
-    private bool puedeVotar{get;set;}
 // Constructor
 public Persona()
 {
@@ -20,7 +19,7 @@ public Persona()
         Apellido=apellido;
         FechaNacimiento = fn;
         Email=email;
-        puedeVotar = false;
+
     }
 
     // Métodos
@@ -34,6 +33,7 @@ public Persona()
         return edad; 
     }
     public bool PuedeVotar(){
+        bool puedeVotar;
         const int EdadMinima = 16;
         if(ObtenerEdad() >= EdadMinima) puedeVotar = true;
         else puedeVotar = false;
