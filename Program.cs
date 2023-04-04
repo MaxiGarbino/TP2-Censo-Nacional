@@ -8,7 +8,7 @@ menu = Funciones.IngresarEnteroEnRango("Ingrese la opcion: 1.Cargar nueva person
 do{
     switch (menu){
     case 1:
-        
+        CargarPersona();
         break;
     case 2:
         
@@ -17,7 +17,7 @@ do{
         
         break;
     case 4:
-        
+        ModificarMail();
         break;
     }
 }while(menu != 5);
